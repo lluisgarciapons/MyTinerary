@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: nunito;
+  text-align: center;
+  height: 100vh;
+}
+
+#page-wrap {
+  padding-top: 70px;
+}
+
+.logo {
+  width: 100%;
+}
+
+.arrow-right {
+  width: 50%;
+}
+
+/* MENU */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  left: 10px;
+  top: 10px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #222;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  /* background: #373a47; */
+  background: transparent;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-menu-wrap {
+  display: block;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #f3532bf5;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  box-sizing: border-box;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.link,
+.link:hover,
+.link:visited,
+.link:active {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(85, 81, 81);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.home-icon {
+  margin-top: 10px;
+}
+
+.home-icon i {
+  font-size: 40px;
+  color: white;
+}
+
+.hidden-icon i {
+  color: transparent;
+}
+
+.city {
+  margin: 10px;
+  padding: 10px;
+  /* border: 1px solid #f3532bf5; */
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  /* background-color: rgb(255, 241, 235); */
+  background-color: #eee;
+}
+
+.city span {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #333;
+}
+
+.city small {
+  color: #333;
+}
+
+.all-cities {
+  height: 400px;
+  width: 80%;
+  margin: auto;
+  overflow-y: auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-image-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 3px #adaeaf5b;
+  border-style: outset;
+  overflow: hidden;
+}
+
+.profile-picture {
+  width: 100%;
+}
+
+.price {
+  color: rgb(1, 100, 1);
+}
+/* 
+input[type="text"]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #ff5722 !important;
+  box-shadow: 0 1px 0 0 #ff5722 !important;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label {
+  color: #ff5722 !important;
+} */
+
+.slick-slide img {
+  border: 5px solid #fff;
+  display: block;
+  width: 95%;
+  margin: auto;
+}

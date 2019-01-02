@@ -2,10 +2,24 @@
   "name": "mytinerary",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000/",
   "dependencies": {
+    "@types/react-image-gallery": "^0.8.3",
+    "@types/react-redux": "^6.0.10",
+    "axios": "^0.18.0",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.6.3",
+    "react-burger-menu": "^2.5.4",
+    "react-debounce-input": "^3.2.0",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-image-gallery": "^0.8.12",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-slick": "^0.23.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
