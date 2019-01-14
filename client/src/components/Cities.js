@@ -9,12 +9,17 @@ class Cities extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: false,
       filteredCities: []
     };
   }
 
-  componentDidMount() {
-    this.props.addCities();
+  async componentDidMount() {
+    await this.props.addCities();
+
+    this.setState({
+      loaded: true
+    });
 
     //   this.callApi()
     //     .then(res => {
@@ -45,11 +50,11 @@ class Cities extends Component {
     this.setState({
       filteredCities
     });
+    console.log("filtered cities:", this.state.filteredCities);
   };
 
-  render() {
+  content() {
     // console.log(this.props);
-    console.log("filtered cities:", this.state.filteredCities);
     // const { cities } = this.props;    // this was for assigning all the cities comming from                                            the store to the const cities
 
     return (
@@ -74,6 +79,10 @@ class Cities extends Component {
         <Footer />
       </div>
     );
+  }
+
+  render() {
+    return <div>{this.state.loaded ? this.content() : null}</div>;
   }
 }
 

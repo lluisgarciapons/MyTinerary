@@ -22,7 +22,7 @@ export class SlickSlider extends Component {
   render() {
     var settings = {
       dots: true,
-      slidesToShow: 2,
+      slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
       adaptiveHeight: false

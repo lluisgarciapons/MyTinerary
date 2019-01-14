@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import GaudiLover from "../GaudiLover.png";
 // import ImageSlider from "./ImageSlider";
 import SlickSlider from "./SlickSlider";
+import Comments from "./Comments";
 // import HambreAlumna from "../HambreAlumna.png";
 
 function HastagList(props) {
@@ -14,8 +15,9 @@ function Hastag(props) {
 
 export class Itinerary extends Component {
   render() {
-    console.log(this.props);
+    // console.log("Itinerary Component RENDER");
     const itinerary = this.props.itinerary;
+    const comments = this.props.comments;
     return (
       <li className="itinerary">
         <div className="collapsible-header row">
@@ -46,9 +48,16 @@ export class Itinerary extends Component {
           </div>
         </div>
         <div className="collapsible-body">
-          <h4>Find the best activities!</h4>
+          <h3>Find the best activities!</h3>
           {/* <ImageSlider /> */}
           <SlickSlider activities={this.props.activities} />
+
+          <Comments
+            itinerary={itinerary}
+            comments={comments}
+            onClick={this.props.onClick}
+            delete={this.props.delete}
+          />
         </div>
       </li>
 

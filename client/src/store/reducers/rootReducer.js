@@ -1,7 +1,9 @@
 const initState = {
   cities: [],
   itineraries: [],
-  activities: []
+  activities: [],
+  comments: [],
+  toast: false
 };
 
 const rootReducer = (state = initState, action) => {
@@ -20,6 +22,27 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         activities: action.activities
+      };
+    case "ADD_COMMENT":
+      return {
+        ...state,
+        comments: action.comments
+      };
+    case "POST_COMMENT":
+      return {
+        ...state,
+        comments: [...state.comments, action.comments],
+        toast: false
+      };
+    case "DEL_COMMENT":
+      return {
+        ...state,
+        comments: state.comments.filter(comment => comment._id !== action.id)
+      };
+    case "CHANGE_TOAST":
+      return {
+        ...state,
+        toast: action.toast
       };
     default:
       return {

@@ -7,13 +7,21 @@ function findActivities(itinerary, activities) {
   );
 }
 
-const ItinerariesList = props =>
-  props.itineraries.map((itinerary, index) => (
+function findComments(itinerary, comments) {
+  return comments.filter(comment => comment.itineraryId === itinerary._id);
+}
+
+const ItinerariesList = props => {
+  return props.itineraries.map((itinerary, index) => (
     <Itinerary
       key={index}
       itinerary={itinerary}
       activities={findActivities(itinerary, props.activities)}
+      comments={findComments(itinerary, props.comments)}
+      onClick={props.onClick}
+      delete={props.delete}
     />
   ));
+};
 
 export default ItinerariesList;

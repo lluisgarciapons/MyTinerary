@@ -6,6 +6,7 @@ import "../style/App.css";
 
 class Home extends Component {
   render() {
+    console.log("Welcome to MyTinerary!");
     return (
       <div id="page-wrap">
         <img src={myLogo} alt="MyTineraryLogo" className="logo" />

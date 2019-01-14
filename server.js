@@ -2,6 +2,7 @@
 const citiesRouter = require("./routes/citiesRouter");
 const itineraryRouter = require("./routes/itineraryRouter");
 const activityRouter = require("./routes/activityRouter");
+const commentRouter = require("./routes/commentRouter");
 const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -32,5 +33,6 @@ mongoose.connect(
 app.use("/cities/all", citiesRouter);
 app.use("/itinerary", itineraryRouter);
 app.use("/activity", activityRouter);
+app.use("/comments", commentRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
