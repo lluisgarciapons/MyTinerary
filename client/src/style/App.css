@@ -269,3 +269,10 @@ input[type="text"]:not(.browser-default).comment-input {
   font-size: 60%;
   font-style: italic;
 }
+
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}

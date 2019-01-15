@@ -3,6 +3,7 @@ const citiesRouter = require("./routes/citiesRouter");
 const itineraryRouter = require("./routes/itineraryRouter");
 const activityRouter = require("./routes/activityRouter");
 const commentRouter = require("./routes/commentRouter");
+const userRouter = require("./routes/userRouter");
 const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -34,5 +35,12 @@ app.use("/cities/all", citiesRouter);
 app.use("/itinerary", itineraryRouter);
 app.use("/activity", activityRouter);
 app.use("/comments", commentRouter);
+app.use("/users", userRouter);
+
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  console.error(err.status);
+  res.status(400).send(err.message);
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
