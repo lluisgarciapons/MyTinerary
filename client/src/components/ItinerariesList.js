@@ -20,6 +20,8 @@ const ItinerariesList = props => {
       comments={findComments(itinerary, props.comments)}
       onClick={props.onClick}
       delete={props.delete}
+      isAuthenticated={props.isAuthenticated}
+      userName={props.userName}
     />
   ));
 };

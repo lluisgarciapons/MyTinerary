@@ -16,14 +16,19 @@ commentRouter
     });
   })
   .delete((req, res) => {
+    console.log("actually deleted from database");
     Comment.findById(req.params.id, (err, comment) => {
-      comment.remove(err => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.status(204).send("removed");
-        }
-      });
+      if (comment.user.name === req.decoded.userName) {
+        comment.remove(err => {
+          if (err) {
+            res.status(500).send(err);
+          } else {
+            res.status(204).send("removed");
+          }
+        });
+      } else {
+        res.status(401).send("You are not authorized to delete this comment.");
+      }
     });
   });
 
@@ -35,7 +40,10 @@ commentRouter
     });
   })
   .post((req, res) => {
-    let comment = new Comment(req.body);
+    let comment = new Comment({
+      ...req.body,
+      user: { ...req.body.user, name: req.decoded.userName }
+    });
     comment.save();
     res.status(201).send(comment);
   });

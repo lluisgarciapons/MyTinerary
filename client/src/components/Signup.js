@@ -32,14 +32,12 @@ class Signup extends Component {
         isError: true,
         error: "All fields are required."
       });
-      return;
     } else if (this.state.password !== this.state.confirm) {
       console.log("not match");
       this.setState({
         isError: true,
         error: "Passwords must be the same."
       });
-      return;
     } else {
       this.setState({
         isError: false,

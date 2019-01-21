@@ -3,7 +3,12 @@ const initState = {
   itineraries: [],
   activities: [],
   comments: [],
-  toast: false
+  toast: false,
+  isAuthenticated: false,
+  message: "",
+  error: false,
+  userEmail: "",
+  userName: ""
 };
 
 const rootReducer = (state = initState, action) => {
@@ -43,6 +48,33 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         toast: action.toast
+      };
+    case "LOGIN_SUCCESS":
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated,
+        message: action.message,
+        error: action.error,
+        userEmail: action.userEmail,
+        userName: action.userName
+      };
+    case "LOGIN_FAIL":
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated,
+        message: action.message,
+        error: action.error,
+        userEmail: action.userEmail,
+        userName: action.userName
+      };
+    case "LOG_OUT":
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated,
+        message: action.message,
+        error: action.error,
+        userEmail: action.userEmail,
+        userName: action.userName
       };
     default:
       return {

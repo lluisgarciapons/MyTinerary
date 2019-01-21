@@ -57,6 +57,8 @@ export class Itinerary extends Component {
             comments={comments}
             onClick={this.props.onClick}
             delete={this.props.delete}
+            isAuthenticated={this.props.isAuthenticated}
+            userName={this.props.userName}
           />
         </div>
       </li>

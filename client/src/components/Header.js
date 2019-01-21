@@ -3,11 +3,16 @@ import burger from "../burgerMenuUbiqumLogo.png";
 import "../style/App.css";
 import { bubble as Menu } from "react-burger-menu";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { logOut } from "../store/actions/loginAction";
 
 class Header extends Component {
-  state = {
-    menuOpen: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false
+    };
+  }
 
   render() {
     return (
@@ -20,15 +25,54 @@ class Header extends Component {
           <img className="burgerIcon" src={burger} alt="UbiqumBurger" />
         }
       >
-        <NavLink className="link" to="/login">
-          Log in
-        </NavLink>
-        <NavLink className="link" to="/signup">
-          Sign up
-        </NavLink>
+        {!this.props.isAuthenticated ? (
+          <NavLink
+            className="link"
+            to="/login"
+            onClick={() => {
+              this.setState({ menuOpen: false });
+            }}
+          >
+            Log in
+          </NavLink>
+        ) : null}
+        {!this.props.isAuthenticated ? (
+          <NavLink
+            className="link"
+            to="/signup"
+            onClick={() => {
+              this.setState({ menuOpen: false });
+            }}
+          >
+            Sign up
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            onClick={() => this.props.logOut()}
+            className="link"
+          >
+            Log Out
+          </NavLink>
+        )}
       </Menu>
     );
   }
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    logOut: () => dispatch(logOut())
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.isAuthenticated
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

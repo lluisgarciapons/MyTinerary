@@ -33,7 +33,7 @@ userRouter
   });
 
 userRouter.route("/:email").get((req, res) => {
-  User.find({ email: req.params.email }, (err, user) => {
+  User.findOne({ email: req.params.email }, (err, user) => {
     res.json(user);
   });
 });

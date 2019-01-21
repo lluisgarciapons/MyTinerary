@@ -18,7 +18,9 @@ export class Itineraries extends Component {
       loaded: false,
       itineraries: [],
       activities: [],
-      comments: []
+      comments: [],
+      isAuthenticated: false,
+      userName: null
     };
   }
   async componentWillMount() {
@@ -56,7 +58,9 @@ export class Itineraries extends Component {
         activities: nextProps.activities,
         comments: comments,
         exist: exist,
-        loaded: true
+        loaded: true,
+        isAuthenticated: nextProps.isAuthenticated,
+        userName: nextProps.userName
       });
     } else if (nextProps.toast !== this.props.toast && nextProps.toast) {
       var toastHTML = `<span>Message sent</span>`;
@@ -79,6 +83,8 @@ export class Itineraries extends Component {
       const itineraries = this.state.itineraries;
       const activities = this.state.activities;
       const comments = this.state.comments;
+      const isAuth = this.state.isAuthenticated;
+      const userName = this.state.userName;
       return (
         <div id="page-wrap">
           <div className="itinerary-city">
@@ -96,6 +102,8 @@ export class Itineraries extends Component {
               comments={comments}
               onClick={this.eventHandler}
               delete={this.deleteComment}
+              isAuthenticated={isAuth}
+              userName={userName}
             />
           </ul>
           <Footer goBack={"Cities"} />
@@ -156,7 +164,9 @@ const mapStateToProps = state => {
     itineraries: state.itineraries,
     activities: state.activities,
     comments: state.comments,
-    toast: state.toast
+    toast: state.toast,
+    isAuthenticated: state.isAuthenticated,
+    userName: state.userName
   };
 };
 

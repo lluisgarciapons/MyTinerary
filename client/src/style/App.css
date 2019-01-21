@@ -93,6 +93,7 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 20px;
+  display: block;
 }
 
 .footer {
@@ -273,6 +274,13 @@ input[type="text"]:not(.browser-default).comment-input {
 .alert {
   padding: 20px;
   background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+.success {
+  padding: 20px;
+  background-color: #30db63; /* Red */
   color: white;
   margin-bottom: 15px;
 }

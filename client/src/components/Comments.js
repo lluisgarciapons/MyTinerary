@@ -107,53 +107,66 @@ export class Comments extends Component {
   render() {
     // console.log("Comments Component RENDER");
     const comments = this.props.comments;
+    const isAuth = this.props.isAuthenticated;
+    const userName = this.props.userName;
     // const itinerary = this.props.itinerary;
     return (
       <>
-        <div className="row comments-section">
-          <h3>Comments</h3>
-          <div className="col s8 offset-s1">
-            <input
-              value={this.state.inputValue}
-              ref={this.textInput}
-              onChange={this.updateInputValue}
-              className="comment-input"
-              type="text"
-              placeholder="write here"
-            />
-          </div>
-          <button onClick={this.onClickHandler} className="btn">
-            <i className="material-icons">send</i>
-          </button>
-          {/* </div> */}
-          {/* <div className="row"> */}
-          {comments.map((comment, index) => {
-            let date = this.formatDate(new Date(comment.date));
-            // let date = this.formatDate(new Date());
-            // let date = this.formatDate(new Date(1546877595819));
-            return (
-              <div className="col s12 comment" key={index}>
-                <img
-                  className="comment-image"
-                  src={comment.user.photo}
-                  alt="profile"
-                />
-                <div className="comment-box">
-                  <div className="comment-header">
-                    <span className="comment-user">{comment.user.name}</span>
-                    <div className="close" onClick={this.deletePost.bind(this)}>
-                      <i id={comment._id} className="material-icons">
-                        close
-                      </i>
+        {isAuth ? (
+          <div className="row comments-section">
+            <h3>Comments</h3>
+            <div className="col s8 offset-s1">
+              <input
+                value={this.state.inputValue}
+                ref={this.textInput}
+                onChange={this.updateInputValue}
+                className="comment-input"
+                type="text"
+                placeholder="write here"
+              />
+            </div>
+            <button onClick={this.onClickHandler} className="btn">
+              <i className="material-icons">send</i>
+            </button>
+            {/* </div> */}
+            {/* <div className="row"> */}
+            {comments.map((comment, index) => {
+              let date = this.formatDate(new Date(comment.date));
+              // let date = this.formatDate(new Date());
+              // let date = this.formatDate(new Date(1546877595819));
+              return (
+                <div className="col s12 comment" key={index}>
+                  <img
+                    className="comment-image"
+                    src={comment.user.photo}
+                    alt="profile"
+                  />
+                  <div className="comment-box">
+                    <div className="comment-header">
+                      <span className="comment-user">{comment.user.name}</span>
+                      {userName === comment.user.name && (
+                        <div
+                          className="close"
+                          onClick={this.deletePost.bind(this)}
+                        >
+                          <i id={comment._id} className="material-icons">
+                            close
+                          </i>
+                        </div>
+                      )}
                     </div>
+                    <p className="comment-message">{comment.message}</p>
+                    <small className="comment-time">{date}</small>
                   </div>
-                  <p className="comment-message">{comment.message}</p>
-                  <small className="comment-time">{date}</small>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ) : (
+          <h3 className="alert comments-section">
+            You must LOG IN to see the comments section.
+          </h3>
+        )}
       </>
     );
   }
